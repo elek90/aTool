@@ -1,0 +1,9 @@
+apply from: 'code-check/ktlint.gradle'
+apply from: 'code-check/detekt.gradle'
+apply from: 'code-check/android-lint.gradle'
+
+task lc {
+    dependsOn 'ktlint'
+    dependsOn 'detekt'
+    dependsOn 'lint'
+}

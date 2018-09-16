@@ -1,0 +1,51 @@
+image: git.eleknet.dk:7900/elek/simplerss:27
+
+before_script:
+ - export GRADLE_USER_HOME=`pwd`/.gradle
+
+cache:
+  paths:
+    - .gradle/wrapper
+    - .gradle/caches
+
+stages:
+ - lint
+ - test
+
+# ktLint
+lint_ktLint:
+  stage: lint
+  script:
+    - ./gradlew ktlint
+  artifacts:
+    paths:
+    - app/build/reports
+    expire_in: 1 week
+
+# Android Lint
+lint_android:
+  stage: lint
+  script:
+    - ./gradlew lint
+  artifacts:
+    paths:
+    - app/build/reports
+    expire_in: 1 week
+
+# Detekt
+lint_detekt:
+  stage: lint
+  script:
+    - ./gradlew detekt
+  artifacts:
+    paths:
+    - app/build/reports
+    expire_in: 1 week
+  allow_failure: true
+
+# Test
+test:
+  stage: test
+  script:
+    - ./gradlew testDebugUnitTest
+  allow_failure: true

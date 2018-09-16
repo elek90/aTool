@@ -1,0 +1,20 @@
+configurations {
+    detekt
+}
+
+task detekt(type: JavaExec) {
+    main = "io.gitlab.arturbosch.detekt.cli.Main"
+    classpath = configurations.detekt
+    def input = "$projectDir/src/main/java"
+    def config = "$projectDir/code-check/detekt-config.yml"
+    def filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
+    def output = file("build/reports")
+    def outputName = "detekt-report"
+
+    def params = [ '-i', input, '-c', config, '-f', filters, '-o', output, '-on', outputName]
+    args(params)
+}
+
+dependencies {
+    detekt 'io.gitlab.arturbosch.detekt:detekt-cli:1.0.0.RC8'
+}

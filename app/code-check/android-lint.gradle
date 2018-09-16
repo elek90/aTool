@@ -1,0 +1,9 @@
+android {
+    lintOptions {
+        checkReleaseBuilds true
+        abortOnError true
+        enable 'StopShip'
+        fatal 'StopShip'
+        lintConfig file('./code-check/android-lint.xml')
+    }
+}
