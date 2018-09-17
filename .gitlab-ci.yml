@@ -47,7 +47,6 @@ lint_detekt:
     paths:
     - app/build/reports
     expire_in: 1 week
-  allow_failure: true
 
 # Test
 test:
@@ -56,4 +55,3 @@ test:
     - docker
   script:
     - ./gradlew testDebugUnitTest
-  allow_failure: true
