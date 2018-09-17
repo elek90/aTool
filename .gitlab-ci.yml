@@ -21,7 +21,7 @@ lint_ktLint:
     - ./gradlew ktlint
   artifacts:
     paths:
-    - app/build/reports
+    - app/build/reports/ktlint.html
     expire_in: 1 week
 
 # Android Lint
@@ -33,7 +33,7 @@ lint_android:
     - ./gradlew lint
   artifacts:
     paths:
-    - app/build/reports
+    - app/build/reports/lint-results.html
     expire_in: 1 week
 
 # Detekt
@@ -45,7 +45,7 @@ lint_detekt:
     - ./gradlew detekt
   artifacts:
     paths:
-    - app/build/reports
+    - app/build/reports/detekt-report.html
     expire_in: 1 week
 
 # Test
@@ -55,3 +55,9 @@ test:
     - docker
   script:
     - ./gradlew testDebugUnitTest
+    - ./gradlew testDebugUnitTestCoverage
+  artifacts:
+    paths:
+    - app/build/reports/tests/testDebugUnitTest
+    - app/build/reports/jacoco/testDebugUnitTestCoverage
+    expire_in: 1 week

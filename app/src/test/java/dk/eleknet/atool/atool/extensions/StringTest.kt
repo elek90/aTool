@@ -38,7 +38,7 @@ class StringTest {
     fun stringTest_isInvalidEmail() {
         val invalidEmails = listOf(
             "@gmail.com", // missing mail
-            "emailvalid.com", //missing @
+            "emailvalid.com", // missing @
             "my.email@.com", // missing domain
             "123.33.mail@email" // missing tld
         )
