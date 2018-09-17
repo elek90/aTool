@@ -15,6 +15,8 @@ stages:
 # ktLint
 lint_ktLint:
   stage: lint
+  tags:
+    - docker
   script:
     - ./gradlew ktlint
   artifacts:
@@ -25,6 +27,8 @@ lint_ktLint:
 # Android Lint
 lint_android:
   stage: lint
+  tags:
+    - docker
   script:
     - ./gradlew lint
   artifacts:
@@ -35,6 +39,8 @@ lint_android:
 # Detekt
 lint_detekt:
   stage: lint
+  tags:
+    - docker
   script:
     - ./gradlew detekt
   artifacts:
@@ -46,6 +52,8 @@ lint_detekt:
 # Test
 test:
   stage: test
+  tags:
+    - docker
   script:
     - ./gradlew testDebugUnitTest
   allow_failure: true
