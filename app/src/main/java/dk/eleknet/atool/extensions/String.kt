@@ -1,4 +1,4 @@
-package dk.eleknet.atool.atool.extensions
+package dk.eleknet.atool.extensions
 
 import java.util.regex.Pattern
 

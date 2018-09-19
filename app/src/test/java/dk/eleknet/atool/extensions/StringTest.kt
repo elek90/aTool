@@ -1,4 +1,4 @@
-package dk.eleknet.atool.atool.extensions
+package dk.eleknet.atool.extensions
 
 import junit.framework.TestCase
 import junit.framework.TestCase.assertFalse
