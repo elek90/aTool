@@ -1,6 +1,5 @@
 package dk.eleknet.atool.extensions
 
-import dk.eleknet.atool.extensions.orValue
 import junit.framework.TestCase
 import org.junit.Test
 
