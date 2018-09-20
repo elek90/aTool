@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 - Common intents functions (phone, mail, map, camera)
+- Boolean extensions
 - Int extensions
 - Float extensions
 - View extensions
