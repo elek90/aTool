@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 
-## Version 1.0 - 2018-09-20
+## Version 1.1.0 - 2018-10-18
+- Added Long extensions
+
+## Version 1.0.0 - 2018-09-20
 ### Added
 - Common intents functions (phone, mail, map, camera)
 - Boolean extensions
@@ -15,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Float extensions
 - View extensions
 
-## Version 0.1 - 2018-09-19
+## Version 0.0.1 - 2018-09-19
 ### Added
 - Added String extensions
 - Added Double extensions
