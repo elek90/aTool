@@ -55,7 +55,7 @@ test:
     - docker
   script:
     - ./gradlew jacocoTestReport
-    - cat app/build/reports/jacoco/jacocoTestReport/html/index.html | grep -o 'Total[^%]*%' | sed -e 's/Total/Total: /g' | sed -e 's/<.*>//g' <<< $var_containing_string_to_sed
+    - cat app/build/reports/jacoco/jacocoTestReport/html/index.html | grep -o 'Total[^%]*%' | sed -e 's/Total/Total:\ /g' | sed -e 's/<.*>//g' <<< $var_containing_string_to_sed
   artifacts:
     paths:
     - app/build/reports/
