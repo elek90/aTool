@@ -1,4 +1,4 @@
-image: git.eleknet.dk:7900/elek/simplerss:27
+image: git.eleknet.dk:7900/elek/simplerss:28
 
 before_script:
  - export GRADLE_USER_HOME=`pwd`/.gradle
@@ -54,10 +54,8 @@ test:
   tags:
     - docker
   script:
-    - ./gradlew testDebugUnitTest
-    - ./gradlew testDebugUnitTestCoverage
+    - ./gradlew jacocoTestReport
   artifacts:
     paths:
-    - app/build/reports/tests/testDebugUnitTest
-    - app/build/reports/jacoco/testDebugUnitTestCoverage
+    - app/build/reports/
     expire_in: 1 week

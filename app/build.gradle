@@ -11,7 +11,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         debug {
@@ -22,11 +22,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/java'
+        test.java.srcDirs += 'src/test/java'
+        androidTest.java.srcDirs += 'src/androidTest/java'
+    }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        animationsDisabled true
+
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compileOnly "com.android.support:design:$supportLibVersion"
+    compileOnly "com.android.support:design:$support_lib_version"
 
     //Testing
     testImplementation 'junit:junit:4.12'
