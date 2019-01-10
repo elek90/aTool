@@ -55,7 +55,7 @@ test:
     - docker
   script:
     - ./gradlew jacocoTestReport
-    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, " instructions covered"; print "Total", 100*covered/instructions "% lines covered" }' app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.csv
+    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, " instructions covered"; print "Total", int(100*covered/instructions) "% lines covered" }' app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.csv
   artifacts:
     paths:
     - app/build/reports/
