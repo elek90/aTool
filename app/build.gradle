@@ -42,6 +42,7 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compileOnly "com.android.support:design:$support_lib_version"
+    compileOnly "androidx.recyclerview:recyclerview-selection:1.0.0"
 
     //Testing
     testImplementation 'junit:junit:4.12'
