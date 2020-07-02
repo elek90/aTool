@@ -1,8 +1,8 @@
 package dk.eleknet.atool.extensions
 
-import android.support.annotation.StringRes
-import android.support.design.widget.Snackbar
 import android.view.View
+import androidx.annotation.StringRes
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * Changes a view to visible

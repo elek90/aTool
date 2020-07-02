@@ -11,6 +11,7 @@ cache:
 stages:
  - lint
  - test
+ - deploy
 
 # ktLint
 lint_ktLint:
@@ -60,3 +61,14 @@ test:
     paths:
     - app/build/reports/
     expire_in: 1 week
+
+deploy_bintray:
+  stage: deploy
+  tags:
+    - docker
+  only:
+    - tags
+  script:
+    - mkdir -p secret
+    - echo "user=${BINTRAY_USER}\napikey=${BINTRAY_APIKEY}" > secret/bintray.properties
+    - ./gradlew :atool:bintrayUpload

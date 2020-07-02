@@ -18,3 +18,5 @@ Generate code coverage report:
 ```
 
 The report is is placed in the `app/build/reports/jacoco` folder.
+
+## Deploy

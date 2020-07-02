@@ -4,13 +4,37 @@ apply plugin: 'kotlin-android-extensions'
 apply from: 'code-check/qa.gradle'
 apply from: 'code-check/jacoco.gradle'
 
+ext {
+    bintrayRepo = 'Android'
+    bintrayName = 'aTool'
+
+    publishedGroupId = 'dk.eleknet.android'
+    libraryName = 'atool'
+    artifact = 'atool'
+
+    libraryDescription = 'aTool utilities'
+
+    siteUrl = 'https://git.eleknet.dk/elek/aTool'
+    gitUrl = 'https://git.eleknet.dk/elek/aTool.git'
+
+    libraryVersion = getTagVersion()
+
+    developerId = 'elek'
+    developerName = 'Alexander Murillo'
+    developerEmail = 'alexandersalemander@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName getTagVersion()
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
@@ -40,12 +64,20 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.android.material:material:1.1.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    compileOnly "com.android.support:design:$support_lib_version"
     compileOnly "androidx.recyclerview:recyclerview-selection:1.0.0"
 
     //Testing
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+def getTagVersion() {
+    def versionName = 'git describe --tags --abbrev=0'.execute([], project.rootDir).text.trim()
+    println sprintf("Version name %s", versionName)
+    return versionName
+}
+
+apply from: 'publish.gradle'
